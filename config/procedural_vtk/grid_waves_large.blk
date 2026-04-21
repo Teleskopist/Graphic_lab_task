@@ -1,0 +1,9 @@
+{
+  generator:s = "vtk"
+  unstructured_grid
+  {
+    model:s = "waves_grid"
+    grid_size:i3 = 200,200,200
+    frequencies:i = 3
+  }
+}

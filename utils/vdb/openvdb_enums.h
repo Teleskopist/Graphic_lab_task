@@ -1,0 +1,1 @@
+extern void force_register_OpenVDB_enums();

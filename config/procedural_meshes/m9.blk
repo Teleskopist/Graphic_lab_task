@@ -1,0 +1,7 @@
+{
+  generator:s = "mesh"
+  model:s = "sphere"
+  segments:i = 32
+  shared_vertices:b = true
+  vertex_normals:b = true
+}

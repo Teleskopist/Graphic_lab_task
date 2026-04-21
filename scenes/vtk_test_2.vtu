@@ -1,0 +1,37 @@
+  <?xml version="1.0"?>
+  <VTKFile type="PolyData" version="0.1" byte_order="LittleEndian">
+    <DataArraysList name="invalid_array_1" format="ascii">
+      0 1 2 3 4 5 6
+    </DataArraysList>
+    <!-- it is like <DataArray but not exactly -->
+    <DataArraysList name="invalid_array_2" argument="<DataArray">
+      0 1 2 3 4 5 6
+    </DataArraysList>
+    <DataArraysList name="invalid_array_3" argument="format=">
+      0 1 2 3 4 5 6
+    </DataArraysList>
+    <NotDataArray   name="invalid_array_4" format="ascii">
+      0 1 2 3 4 5 6
+    </NotDataArray>      
+    <DataArray      name="valid_array_1" format="ascii">
+      0 1
+    </DataArray> 
+    <DataArray      name="valid_array_2" format="binary">
+      
+
+      AABB
+    </DataArray> 
+    <DataArray      name="valid_array_3"  
+    format="ascii">
+      0 1 2 3
+    </DataArray> 
+    <DataArray      name="valid_array_4" informat="binary" format="ascii">
+      0 1 2 3 4
+    </DataArray> 
+    <DataArray      name="valid_array_5" argument=">" format="ascii">
+      0 1 2 3 4 5
+    </DataArray> 
+    <DataArray      name="valid_array_6" argument='>' format="ascii">
+      0 1 2 3 4 5 6
+    </DataArray> 
+  </VTKFile>

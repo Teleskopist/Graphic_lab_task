@@ -1,0 +1,33 @@
+{
+  "mainClass"     : "MultiRenderer",
+  "baseClasses"   : [],
+  "baseDirectory" : "../..",
+  "composClasses" : [{"interface" : "ISceneObject", 
+                      "implementation": "BVHRT",
+                      "intersection": {
+                        "shader" : "IntersectAllPrimitivesInLeaf",
+                        "accel"  : "m_pAccelStruct"
+                      }}],
+  "source"         : ["MultiRenderer/MultiRenderer.cpp", "MultiRenderer/MultiRenderer_resolve.cpp", "MultiRenderer/BVH2Common.cpp"],
+  "includeProcess" : [".", "MultiRenderer"],
+  "includeIgnore"  : ["dependencies/1st-party/LiteMath"],
+  "options" : {
+    "-pattern"    : "ipv",
+    "-shaderCC"   : "slang",
+    "-shaderFolderPrefix" : "MultiRenderer/",
+    "-timestamps"   : "0",
+    "-suffix" : "_slang_comp_rq",
+    "-enable_ray_tracing_pipeline" : "0"
+  },
+  "defines" : {
+    "PUGIXML_NO_EXCEPTIONS" : "",
+    "DISABLE_OPENVDB" : "",
+    "DISABLE_CSGDNF" : ""
+  },
+  "kernels": {
+    "kernel1D_FillGbuffer": {
+      "ExcludeFunctions": [ "m_pAccelStruct_BVH2TraverseF32"]
+    }
+  },
+  "end" : ""
+}

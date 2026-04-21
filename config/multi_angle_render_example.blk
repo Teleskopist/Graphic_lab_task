@@ -1,0 +1,14 @@
+{
+  render_config
+  {
+    scene:s = "./scenes/01_simple_scenes/bunny.xml" // путь до сцены/модели
+    output_folder:s = "./saves/bunny_images" // куда сохранить картинку
+    width:i = 1024 height:i = 1024 spp:i = 16 background_color:p4 = 0.7,0.9,1,1 // параметры рендера
+    light_dir:p3 = 1,1,1
+    light_color:p3 = 0.4,0.4,0.4
+    cameras_count:i = 64 // количество ракурсов
+    cameras_radius:r = 12
+    cameras_distribution:e_CamerasDistribution = CAMERAS_DISTRIBUTION_UNIFORM_ON_SPHERE // распределение ракурсов
+    cameras_save_format:e_CamerasSaveFormat = CAMERAS_SAVE_FORMAT_CSV // формат сохранения параметров камеры
+  }
+}

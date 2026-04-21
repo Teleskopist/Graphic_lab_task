@@ -1,0 +1,12 @@
+
+
+include(dependencies/clipper2)
+
+set(MANIFOLD_DOWNLOADS OFF)
+set(MANIFOLD_USE_BUILTIN_CLIPPER2 ON)
+set(Clipper2_FOUND TRUE) # Going around find_package(Clipper2)
+
+set(MESSAGE_LOG_LEVEL ${CMAKE_MESSAGE_LOG_LEVEL})
+set(CMAKE_MESSAGE_LOG_LEVEL ERROR)
+litert_import(manifold EXCLUDE_FROM_ALL SYSTEM)
+set(CMAKE_MESSAGE_LOG_LEVEL ${MESSAGE_LOG_LEVEL})

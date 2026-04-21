@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<textures_lib />
+<materials_lib />
+<geometry_lib>
+	<sdf_coctree_v3 num_primitives="19484" id="0" bytesize="78004" name="unnamed_sdf_coctree_v3" type="sdf_coctree_v3" loc="./sdf_coctree_v3_0.bin" />
+</geometry_lib>
+<lights_lib />
+<cam_lib />
+<render_lib />
+<scenes>
+	<scene id="0" bbox="-1 -1 -1 1 1 1 " name="">
+		<instance id="0" mesh_id="0" matrix="1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000" />
+	</scene>
+</scenes>

@@ -1,0 +1,24 @@
+{
+  generator:s = "composite"
+  first
+  {
+    scale:p3 = 1.5, 1.5, 1.5
+    transform:m4 = 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1
+    generator:s = "mesh"
+    model:s = "random_terrain"
+    amplitude:r = 0.005
+    heightmap_resolution:i = 16
+    tiles:i = 128
+    two_sided:b = true
+    thickness:r = 0.0001
+  }
+  second
+  {
+    scale:p3 = 0.1, 0.9, 0.1
+    transform:m4 = 1,0,0,0, 0,1,0,0, 0,0,1,0, 1,1,1,1
+    generator:s = "mesh"
+    model:s = "cylinder"
+    c_segments:i = 64
+    h_segments:i = 16
+  }
+}

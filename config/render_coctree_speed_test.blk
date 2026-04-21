@@ -1,0 +1,14 @@
+{
+  render_config
+  {
+    scene:s = "./saves/coctree_perf_test.xml" 
+    output_file:s = "saves/coctree_perf_test.png"
+    width:i = 1400 height:i = 1400 spp:i = 1 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 2,0,2
+    camera_target:p3 = 0,0,0
+    camera_up:p3 = 0,1,0  
+    light_dir:p3 = 1,1,1
+    preferred_bvh_level:i = 6
+    backend:s = "GPU"
+  }
+}

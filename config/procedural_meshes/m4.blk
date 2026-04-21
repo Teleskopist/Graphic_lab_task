@@ -1,0 +1,10 @@
+{
+  generator:s = "mesh"
+  model:s = "sin_list"
+  rotate_x:r = 0.3
+  rotate_y:r = 0.4
+  rotate_z:r = 0.5
+  two_dim:b = true
+  wavelength:r = 0.4
+  amplitude:r = 0.05
+}

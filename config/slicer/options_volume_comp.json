@@ -1,0 +1,20 @@
+{
+  "mainClass"     : "VolumeRenderer",
+  "baseClasses"   : [],
+  "baseDirectory"  : "../..",
+  "source"         : ["VolumeRenderer/VolumeRenderer.cpp"],
+  "includeProcess" : [".", "VolumeRenderer"],
+  "includeIgnore"  : ["dependencies/1st-party/LiteMath"],
+  "options" : {
+    "-pattern"    : "ipv",
+    "-shaderCC"   : "slang",
+    "-shaderFolderPrefix" : "VolumeRenderer/",
+    "-timestamps"   : "0",
+    "-suffix" : "_slang",
+    "-const_ubo"    : "1"
+  },
+  "defines" : {
+    "PUGIXML_NO_EXCEPTIONS" : ""
+  },
+  "end" : ""
+}

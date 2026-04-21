@@ -1,0 +1,10 @@
+{
+  generator:s = "mesh"
+  model:s = "random_terrain"
+  amplitude:r = 0.005
+  heightmap_resolution:i = 16
+  tiles:i = 128
+  two_sided:b = true
+  thickness:r = 0.1
+  rotate_y:r = 0.4
+}

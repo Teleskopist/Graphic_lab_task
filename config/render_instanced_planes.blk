@@ -1,0 +1,14 @@
+{
+  render_config
+  {
+    scene:s = "saves/stress_test/scene.xml" 
+    output_file:s = "saves/instances_planes_100k.png"
+    width:i = 8192 height:i = 8192 spp:i = 1 background_color:p4 = 0,0,0,1
+    camera_pos:p3 = -150.629410, 10.580750, -11.900379
+    camera_target:p3 = -61.306870, 40.484917, 21.673796
+    camera_up:p3 = -0.279921, 0.954240, -0.105215
+    camera_fov:r = 30
+    light_dir:p3 = -1,-1,1
+    backend:s = "GPU"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  render_config
+  {
+    scene:s = "../models/BMWManifold.obj" 
+    output_file:s = "saves/demo_BMWManifold.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 1.5,0,-0.5
+    camera_target:p3 = 0,0,-0.5
+    camera_up:p3 = 0,1,0
+    light_dir:p3 = 1,1,1
+  }
+  render_config
+  {
+    scene:s = "../models/Buddha.obj" 
+    output_file:s = "saves/demo_Buddha.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = -0.65,-0.1,-2.5
+    camera_target:p3 = -0.65,-0.1,0
+    camera_up:p3 = 0,1,0  
+    light_dir:p3 = 1,1,-1
+  }
+  render_config
+  {
+    scene:s = "../models/Buggy.obj" 
+    output_file:s = "saves/demo_Buggy.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 1.75,-1.75,-0.5
+    camera_target:p3 = 0,0,-0.5
+    camera_up:p3 = 0,0,1  
+    light_dir:p3 = 1,-1,1
+  }
+  render_config
+  {
+    scene:s = "../models/Bunny.obj" 
+    output_file:s = "saves/demo_Bunny.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+  }
+  render_config
+  {
+    scene:s = "../models/Crankcase.obj" 
+    output_file:s = "saves/demo_Crankcase.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 0,1.5,0
+    camera_target:p3 = 0,0,0
+    camera_up:p3 = 0,0,1  
+    light_dir:p3 = 1,1,1
+  }
+  render_config
+  {
+    scene:s = "../models/Dragon.obj" 
+    output_file:s = "saves/demo_Dragon.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 0,-0.25,-2.25
+    camera_target:p3 = 0,-0.25,0
+    camera_up:p3 = 0,1,0  
+    light_dir:p3 = -1,1,-1
+  }
+  render_config
+  {
+    scene:s = "../models/HumanSkeleton.obj" 
+    output_file:s = "saves/demo_HumanSkeleton.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = -0.8,-2.5,-0.1
+    camera_target:p3 = -0.8,0,-0.1
+    camera_up:p3 = 0,0,1  
+    light_dir:p3 = 1,-1,1
+  }
+  render_config
+  {
+    scene:s = "../models/MotorcycleCylinderHead.obj" 
+    output_file:s = "saves/demo_MotorcycleCylinderHead.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 0,0,2
+    camera_target:p3 = 0,0,0
+    camera_up:p3 = 0,1,0  
+    light_dir:p3 = 1,1,1
+  }
+  render_config
+  {
+    scene:s = "../models/Radiator.obj" 
+    output_file:s = "saves/demo_Radiator.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 0,-2.5,-0.75
+    camera_target:p3 = 0,0,-0.75
+    camera_up:p3 = 0,0,1  
+    light_dir:p3 = 1,-1,1
+  }
+  render_config
+  {
+    scene:s = "../models/Roadbike.obj" 
+    output_file:s = "saves/demo_Roadbike.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 1.1,-0.33,0.0
+    camera_target:p3 = 0,-0.33,0.0
+    camera_up:p3 = 0,1,0
+    light_dir:p3 = 1,1,1
+  }
+  render_config
+  {
+    scene:s = "../models/Stone.obj" 
+    output_file:s = "saves/demo_Stone.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = -2.4,-0.33,0.0
+    camera_target:p3 = 0,-0.33,0.0
+    camera_up:p3 = 0,1,0
+    light_dir:p3 = -1,1,1
+  }
+  render_config
+  {
+    scene:s = "../models/WaterPump.obj" 
+    output_file:s = "saves/demo_WaterPump.png"
+    width:i = 2048 height:i = 2048 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 0,0,2.2
+    camera_target:p3 = 0,0,0
+    camera_up:p3 = 0,1,0  
+    light_dir:p3 = 1,1,1
+  }
+}

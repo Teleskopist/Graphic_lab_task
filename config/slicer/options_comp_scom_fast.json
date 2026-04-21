@@ -1,0 +1,37 @@
+{
+  "mainClass"     : "MultiRenderer",
+  "baseClasses"   : [],
+  "composClasses" : [{"interface" : "ISceneObject", 
+                      "implementation": "BVHRT"}],
+  "baseDirectory"  : "../..",
+  "source"         : ["MultiRenderer/MultiRenderer.cpp", "MultiRenderer/MultiRenderer_resolve.cpp", "MultiRenderer/BVH2Common.cpp"],
+  "includeProcess" : [".", "MultiRenderer"],
+  "includeIgnore"  : ["dependencies/1st-party/LiteMath"],
+  "options" : {
+    "-pattern"    : "ipv",
+    "-shaderCC"   : "glsl",
+    "-shaderFolderPrefix" : "shaders/generated/",
+    "-timestamps"   : "0",
+    "-suffix" : "_GPU"
+  },
+  "kernels" : {
+    "kernel1D_FillGbuffer" : {"nonConstantData": {"m_gBuffer" : 1},
+                              "wgSize": [64, 1,  1]}
+  },
+  "defines" : {
+    "PUGIXML_NO_EXCEPTIONS" : "",
+    "DISABLE_OPENVDB" : "",
+    "DISABLE_CSGDNF" : "",
+    "DISABLE_SDF_FRAME_OCTREE" : "",
+    "DISABLE_SDF_FRAME_OCTREE_TEX" : "",
+    "DISABLE_SDF_SVS" : "",
+    "DISABLE_SDF_SBS" : "",
+    "DISABLE_SDF_GRID" : "",
+    "DISABLE_GRAPHICS_PRIM" : "",
+    "DISABLE_SDF_COCTREE_V3" : "",
+    "DISABLE_SDF_MULTI_OCTREE" : "",
+    "DISABLE_SDF_DAG" : "",
+    "ONLY_SINGLE_MODEL_SCOM" : ""
+  },
+  "end" : ""
+}

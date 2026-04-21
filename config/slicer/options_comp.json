@@ -1,0 +1,23 @@
+{
+  "mainClass"     : "MultiRenderer",
+  "baseClasses"   : [],
+  "composClasses" : [{"interface" : "ISceneObject", 
+                      "implementation": "BVHRT"}],
+  "baseDirectory"  : "../..",
+  "source"         : ["MultiRenderer/MultiRenderer.cpp", "MultiRenderer/MultiRenderer_resolve.cpp", "MultiRenderer/BVH2Common.cpp"],
+  "includeProcess" : [".", "MultiRenderer"],
+  "includeIgnore"  : ["dependencies/1st-party/LiteMath"],
+  "options" : {
+    "-pattern"    : "ipv",
+    "-shaderCC"   : "slang",
+    "-shaderFolderPrefix" : "MultiRenderer/",
+    "-timestamps"   : "0",
+    "-suffix" : "_slang_comp"
+  },
+  "defines" : {
+    "PUGIXML_NO_EXCEPTIONS" : "",
+    "DISABLE_OPENVDB"       : "",
+    "DISABLE_CSGDNF"        : ""
+  },
+  "end" : ""
+}

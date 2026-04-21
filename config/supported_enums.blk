@@ -1,0 +1,13 @@
+{
+  device:e_RenderDevice = DEVICE_CPU
+  intersect:e_SDFNodeIntersect = SDF_OCTREE_NODE_INTERSECT_ST
+  mode:e_MultiRenderMode = MULTI_RENDER_MODE_MASK
+  normal_mode:e_NormalMode = NORMAL_MODE_GEOMETRY
+  ray_gen:e_RayGenMode = RAY_GEN_MODE_REGULAR
+  interplation:e_InterpolationMode = INTERPOLATION_MODE_TRILINEAR
+  representation:e_RepresentationMode = REPRESENTATION_MODE_SURFACE
+  leaf_type:e_COctreeLeafType = COCTREE_LEAF_TYPE_GRID
+  clustering_algorithm:e_ClusteringAlgorithm = REPLACEMENT
+  search_algorithm:e_SearchAlgorithm = BALL_TREE
+  demo_scene:e_DemoScene = SINGLE_OBJECT
+}

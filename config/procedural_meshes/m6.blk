@@ -1,0 +1,20 @@
+{
+  generator:s = "composite"
+  first
+  {
+    transform:m4 = 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1
+    generator:s = "mesh"
+    model:s = "two_tiled_planes"
+    thickness:r = 0.0001
+    tiles:i = 32
+  }
+  second
+  {
+    scale:p3 = 0.1, 0.9, 0.1
+    transform:m4 = 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,1,0,1
+    generator:s = "mesh"
+    model:s = "cylinder"
+    c_segments:i = 64
+    h_segments:i = 16
+  }
+}

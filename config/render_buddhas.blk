@@ -1,0 +1,40 @@
+{
+  render_config
+  {
+    scene:s = "./saves/instances_lods.xml" 
+    output_file:s = "saves/instances.png"
+    width:i = 2048 height:i = 1024 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 49.1, 1.13, 69.1
+    camera_target:p3 = 0,0,0
+    camera_up:p3 = 0,1,0  
+    light_dir:p3 = 1,1,1
+    base_lod:i = 9.5
+    fixed_lod:b = false
+  }
+  render_config
+  {
+    scene:s = "./saves/instances_lods.xml" 
+    output_file:s = "saves/instances_lod_nums.png"
+    width:i = 2048 height:i = 1024 spp:i = 16 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 49.1, 1.13, 69.1
+    camera_target:p3 = 0,0,0
+    camera_up:p3 = 0,1,0  
+    light_dir:p3 = 1,1,1
+    base_lod:i = 9.5
+    fixed_lod:b = false
+    render_mode_raw:i = 20 //LOD num
+  }
+  render_config
+  {
+    scene:s = "./saves/instances_lods.xml" 
+    output_file:s = "saves/instances_lod_large.png"
+    width:i = 8192 height:i = 4096 spp:i = 64 background_color:p4 = 1,1,1,1
+    camera_pos:p3 = 49.1, 1.13, 69.1
+    camera_target:p3 = 0,0,0
+    camera_up:p3 = 0,1,0  
+    light_dir:p3 = 1,1,1
+    base_lod:i = 9.5
+    fixed_lod:b = false
+    render_mode_raw:i = 20 //LOD num
+  }
+}

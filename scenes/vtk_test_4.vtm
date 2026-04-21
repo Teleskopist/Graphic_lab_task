@@ -1,0 +1,10 @@
+<?xml version='1.0'?>
+<!-- time='300' -->
+<VTKFile type='vtkMultiBlockDataSet' version='1.0' byte_order='LittleEndian' header_type='UInt64'>
+  <vtkMultiBlockDataSet>
+    <Block name='test_4'>
+      <DataSet name='bottom' file='vtk_test_4a.vtu' />
+      <DataSet name='top' file='vtk_test_4b.vtu' />
+    </Block>
+  </vtkMultiBlockDataSet>
+</VTKFile>

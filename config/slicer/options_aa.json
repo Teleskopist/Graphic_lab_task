@@ -1,0 +1,21 @@
+{
+  "mainClass"     : "Antialiaser",
+  "baseClasses"   : [],
+  "baseDirectory"  : "../..",
+  "source"         : ["PostEffects/antialiasing/antialiaser.cpp"],
+  "includeProcess" : ["."],
+  "includeIgnore"  : ["dependencies/1st-party/LiteMath"],
+  "options" : {
+    "-pattern"    : "ipv",
+    "-shaderCC"   : "glsl",
+    "-shaderFolderPrefix" : "PostEffects/antialiasing/",
+    "-timestamps"   : "0",
+    "-suffix" : "_slang",
+    "-DPUGIXML_NO_EXCEPTIONS" : "",
+    "-DKERNEL_SLICER" : "",
+    "-v" : "",
+    "-enableSubgroup" : "0",
+    "-warpSize" : "32"
+  },
+  "end" : ""
+}

@@ -1,0 +1,12 @@
+{
+  generator:s = "vtk"
+  unstructured_grid
+  {
+    model:s = "dense_grid"
+    function_point:s = "variable_frequency_stripes"
+    grid_size:i3 = 63,63,63
+    frequency:r = 10.0
+    fill_point_channel:b = true
+    fill_cell_channel:b = false
+  }
+}

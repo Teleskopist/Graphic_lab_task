@@ -1,0 +1,13 @@
+{
+  render_config
+  {
+    scene:s = "./scenes/cubemap.xml"
+    renderer:s = "HydraRenderer"
+    output_folder:s = "./saves/bunny_images_hydra"
+    width:i = 1024 height:i = 1024 spp:i = 256
+    cameras_count:i = 64 // количество ракурсов
+    cameras_radius:r = 5
+    cameras_distribution:e_CamerasDistribution = CAMERAS_DISTRIBUTION_UNIFORM_ON_SPHERE
+    cameras_save_format:e_CamerasSaveFormat = CAMERAS_SAVE_FORMAT_CSV
+  }
+}

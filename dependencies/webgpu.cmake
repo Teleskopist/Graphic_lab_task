@@ -1,0 +1,4 @@
+
+set(CMAKE_MESSAGE_LOG_LEVEL WARNING)
+add_subdirectory(webgpu)
+set(CMAKE_MESSAGE_LOG_LEVEL STATUS)

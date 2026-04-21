@@ -1,0 +1,10 @@
+{
+  mesh_paths:arr = {"config/procedural_meshes/m5.blk"}
+  pairs_per_mesh:i = 1000000
+  octree_depth:i = 7
+  brick_size:i = 3
+  IoU_subdiv_rough:i = 8
+  save_bricks_path:s = "saves/random_bricks.csv"
+  save_pairs_path:s = "saves/random_pairs.csv"
+  distance_limit:r = 0.1
+}

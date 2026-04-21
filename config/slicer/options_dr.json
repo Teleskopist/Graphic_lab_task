@@ -1,0 +1,21 @@
+{
+  "mainClass"     : "SparseDR",
+  "baseClasses"   : [],
+  "baseDirectory"  : "../..",
+  "source"         : ["SparseDR/SparseDR_forward_device.cpp", "SparseDR/SparseDR_inverse_device.cpp"],
+  "includeProcess" : [".", "core", "SparseDR", "MultiRenderer"],
+  "includeIgnore"  : ["dependencies/1st-party/LiteMath"],
+  "options" : {
+    "-pattern"    : "rtv",
+    "-shaderFolderPrefix" : "SparseDR/",
+    "-shaderCC"   : "glsl",
+    "-suffix" : "_glsl",
+    "-megakernel" : "1",
+    "-new_rawname": "1",
+    "-v" : ""
+  },
+  "defines" : {
+    "KERNEL_SLICER" : "1"
+  },
+  "end" : ""
+}

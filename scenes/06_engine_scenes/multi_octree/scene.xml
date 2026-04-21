@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<textures_lib />
+<materials_lib />
+<geometry_lib>
+	<sdf_multi_octree num_primitives="8489" id="0" bytesize="246936" name="unnamed_sdf_multi_octree" type="sdf_multi_octree" loc="./sdf_multi_octree_0.bin" />
+</geometry_lib>
+<lights_lib />
+<cam_lib />
+<render_lib />
+<scenes>
+	<scene id="0" bbox="-1 -1 -1 1 1 1 " name="">
+		<instance id="0" mesh_id="0" matrix="1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000 0.000000 0.000000 0.000000 0.000000 1.000000" />
+	</scene>
+</scenes>

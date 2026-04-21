@@ -1,0 +1,119 @@
+<VTKFile type="UnstructuredGrid" version="1.0" byte_order="LittleEndian" header_type="UInt64">
+  <UnstructuredGrid>
+    <FieldData>
+      <DataArray type="Float64" Name="reslin__SIEQ_ELGA" NumberOfComponents="17" ComponentName0="VMIS" ComponentName1="TRESCA" ComponentName2="PRIN_1" ComponentName3="PRIN_2" ComponentName4="PRIN_3" ComponentName5="VMIS_SG" ComponentName6="VECT_1_X" ComponentName7="VECT_1_Y" ComponentName8="VECT_1_Z" ComponentName9="VECT_2_X" ComponentName10="VECT_2_Y" ComponentName11="VECT_2_Z" ComponentName12="VECT_3_X" ComponentName13="VECT_3_Y" ComponentName14="VECT_3_Z" ComponentName15="TRSIG" ComponentName16="TRIAX" NumberOfTuples="4120103" format="appended" RangeMin="22271.300034"         RangeMax="834467104.9"          offset="0"                   >
+        <InformationKey name="DICTIONARY" location="vtkQuadratureSchemeDefinition">
+          <vtkQuadratureSchemeDefinition>
+            <CellType value="10"/>
+            <NumberOfNodes value="4"/>
+            <NumberOfQuadraturePoints value="1"/>
+            <ShapeFunctionWeights>
+              2.5000000000000000e-01 2.5000000000000000e-01 2.5000000000000000e-01 2.5000000000000000e-01
+            </ShapeFunctionWeights>
+            <QuadratureWeights>
+              1.6666666666666666e-01
+            </QuadratureWeights>
+          </vtkQuadratureSchemeDefinition>
+        </InformationKey>
+        <InformationKey name="L2_NORM_FINITE_RANGE" location="vtkDataArray" length="2">
+          <Value index="0">
+            22271.300034
+          </Value>
+          <Value index="1">
+            834467104.9
+          </Value>
+        </InformationKey>
+        <InformationKey name="QUADRATURE_OFFSET_ARRAY_NAME" location="vtkQuadratureSchemeDefinition">
+          ELGA@0
+        </InformationKey>
+        <InformationKey name="L2_NORM_RANGE" location="vtkDataArray" length="2">
+          <Value index="0">
+            22271.300034
+          </Value>
+          <Value index="1">
+            834467104.9
+          </Value>
+        </InformationKey>
+      </DataArray>
+    </FieldData>
+    <Piece NumberOfPoints="996701"               NumberOfCells="4120103"             >
+      <PointData>
+        <DataArray type="Float64" Name="reslin__DEPL" NumberOfComponents="6" ComponentName0="DX" ComponentName1="DY" ComponentName2="DZ" ComponentName3="DRX" ComponentName4="DRY" ComponentName5="DRZ" format="appended" RangeMin="0"                    RangeMax="0.00014427136477"     offset="560334016"           >
+          <InformationKey name="L2_NORM_RANGE" location="vtkDataArray" length="2">
+            <Value index="0">
+              0
+            </Value>
+            <Value index="1">
+              0.00014427136477
+            </Value>
+          </InformationKey>
+          <InformationKey name="L2_NORM_FINITE_RANGE" location="vtkDataArray" length="2">
+            <Value index="0">
+              0
+            </Value>
+            <Value index="1">
+              0.00014427136477
+            </Value>
+          </InformationKey>
+        </DataArray>
+        <DataArray type="Float64" Name="reslin__SIEQ_NOEU" NumberOfComponents="17" ComponentName0="VMIS" ComponentName1="TRESCA" ComponentName2="PRIN_1" ComponentName3="PRIN_2" ComponentName4="PRIN_3" ComponentName5="VMIS_SG" ComponentName6="VECT_1_X" ComponentName7="VECT_1_Y" ComponentName8="VECT_1_Z" ComponentName9="VECT_2_X" ComponentName10="VECT_2_Y" ComponentName11="VECT_2_Z" ComponentName12="VECT_3_X" ComponentName13="VECT_3_Y" ComponentName14="VECT_3_Z" ComponentName15="TRSIG" ComponentName16="TRIAX" format="appended" RangeMin="29550.830442"         RangeMax="661280489.52"         offset="608175672"           >
+          <InformationKey name="L2_NORM_RANGE" location="vtkDataArray" length="2">
+            <Value index="0">
+              29550.830442
+            </Value>
+            <Value index="1">
+              661280489.52
+            </Value>
+          </InformationKey>
+          <InformationKey name="L2_NORM_FINITE_RANGE" location="vtkDataArray" length="2">
+            <Value index="0">
+              29550.830442
+            </Value>
+            <Value index="1">
+              661280489.52
+            </Value>
+          </InformationKey>
+        </DataArray>
+        <DataArray type="Int64" Name="FamilyIdNode" format="appended" RangeMin="0"                    RangeMax="2"                    offset="743727016"           >
+        </DataArray>
+      </PointData>
+      <CellData>
+        <DataArray type="Int64" Name="FamilyIdCell" format="appended" RangeMin="-3"                   RangeMax="-3"                   offset="751700632"           >
+        </DataArray>
+        <DataArray type="Int64" Name="NumIdCell" format="appended" RangeMin="1238406"              RangeMax="5358508"              offset="784661464"           >
+        </DataArray>
+      </CellData>
+      <Points>
+        <DataArray type="Float64" Name="Points" NumberOfComponents="3" format="appended" RangeMin="0.67692008267"        RangeMax="0.9165276526"         offset="817622296"           >
+          <InformationKey name="L2_NORM_RANGE" location="vtkDataArray" length="2">
+            <Value index="0">
+              0.67692008267
+            </Value>
+            <Value index="1">
+              0.9165276526
+            </Value>
+          </InformationKey>
+          <InformationKey name="L2_NORM_FINITE_RANGE" location="vtkDataArray" length="2">
+            <Value index="0">
+              0.67692008267
+            </Value>
+            <Value index="1">
+              0.9165276526
+            </Value>
+          </InformationKey>
+        </DataArray>
+      </Points>
+      <Cells>
+        <DataArray type="Int64" Name="connectivity" format="appended" RangeMin=""                     RangeMax=""                     offset="841543128"           />
+        <DataArray type="Int64" Name="offsets" format="appended" RangeMin=""                     RangeMax=""                     offset="973386432"           />
+        <DataArray type="UInt8" Name="types" format="appended" RangeMin=""                     RangeMax=""                     offset="1006347264"          />
+      </Cells>
+    </Piece>
+  </UnstructuredGrid>
+  <AppendedData encoding="raw">
+   _�f!hhghgh
+   hghdfjhdffgf
+
+ds
+</AppendedData>
+</VTKFile>

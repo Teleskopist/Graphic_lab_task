@@ -1,0 +1,21 @@
+{
+  "mainClass"     : "Denoiser",
+  "baseClasses"   : [],
+  "baseDirectory"  : "../..",
+  "source"         : ["PostEffects/denoising/denoiser.cpp"],
+  "includeProcess" : ["."],
+  "includeIgnore"  : ["dependencies/1st-party/LiteMath"],
+  "options" : {
+    "-pattern"    : "ipv",
+    "-shaderCC"   : "glsl",
+    "-shaderFolderPrefix" : "PostEffects/denoising/",
+    "-timestamps"   : "0",
+    "-suffix" : "_glsl",
+    "-DPUGIXML_NO_EXCEPTIONS" : "",
+    "-DKERNEL_SLICER" : "",
+    "-v" : "",
+    "-enableSubgroup" : "0",
+    "-warpSize" : "32"
+  },
+  "end" : ""
+}

@@ -1,0 +1,62 @@
+#version 460
+#extension GL_GOOGLE_include_directive : require
+
+#include "common_glsl.h"
+layout(binding = 0, set = 0) buffer data0 { vec4 in_data[]; }; // 
+layout(binding = 1, set = 0) buffer data1 { uint out_data[]; }; // 
+layout(binding = 2, set = 0) buffer dataUBO { Denoiser_glsl_UBO_Data ubo; };
+
+float Ks(float p) ;
+float Kr(float p) ;
+
+
+float Ks(float p) {
+    return exp(-p*p/(2.0f * ubo.m_SigmaS * ubo.m_SigmaS));
+}
+
+float Kr(float p) {
+    return exp(-p*p/(2.0f * ubo.m_SigmaR * ubo.m_SigmaR));
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+layout(local_size_x = 32, local_size_y = 8, local_size_z = 1) in;
+
+layout( push_constant ) uniform kernelArgs
+{
+  int height; 
+  int width; 
+  uint iNumElementsZ; 
+  uint tFlagsMask;    
+} kgenArgs;
+
+
+
+void main()
+{
+  bool runThisThread = true;
+  const int y = int(gl_GlobalInvocationID[0]); 
+  const int x = int(gl_GlobalInvocationID[1]); 
+  if(y >= kgenArgs.height + 0 || x >= kgenArgs.width + 0)
+    runThisThread = false;
+    if(runThisThread)
+  {
+  
+            float Wp = 0.0f;
+            vec4 color = vec4(0.0f,0.0f,0.0f,0.0f);
+
+            for (int j = max((-(ubo.m_KernelSize - 1) / 2) + y, 0); j < min((ubo.m_KernelSize / 2 + 1) + y, kgenArgs.height); j++) {
+                for (int i = max((-(ubo.m_KernelSize - 1) / 2) + x, 0); i < min((ubo.m_KernelSize / 2 + 1) + x, kgenArgs.width); i++) {
+                    float v = Kr(length(in_data[y * kgenArgs.width + x] - in_data[j * kgenArgs.width + i])) * Ks(length(vec2(x,y) - vec2(i,j)));
+                    color += in_data[j * kgenArgs.width + i] * v;
+                    Wp += v;
+                }
+            }
+
+            color /= Wp;
+
+            uvec4 col = uvec4(255 * clamp(color, vec4(0,0,0,0), vec4(1,1,1,1)));
+            out_data[y * kgenArgs.width + x] = (col.w << 24) | (col.z << 16) | (col.y << 8) | col.x;
+        
+  }
+}
+

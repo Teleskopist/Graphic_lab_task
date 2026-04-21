@@ -1,0 +1,206 @@
+{
+cmd_0 {
+cmd_code:e_Cmd = INIT
+}
+cmd_1 {
+paths:arr = { "./scenes/01_simple_scenes/instanced_objects.xml" }
+cmd_code:e_Cmd = LOAD_SCENE
+}
+cmd_2 {
+cmd_code:e_Cmd = INIT_RAYTRACING
+}
+cmd_3 {
+input_file:s = "./scenes/01_simple_scenes/data/sphere.vsgf"
+load_reference_scene:b = true
+load_combined_scene:b = false
+save_sdf_debug_info:b = false
+sparse_octree_settings {
+brick_size:i = 1
+brick_pad:i = 0
+depth:i = 7
+min_depth:i = 1
+internal_depth:i = 0
+fill_all_nodes:b = false
+fill_internal_volume:b = false
+allow_multi_nodes:b = false
+allow_nodes_refill:b = false
+advanced_LOD_generation:b = false
+sign_analysis:b = false
+use_pruning:b = false
+calculate_tc:b = false
+calculate_mat_id:b = false
+allow_early_stop:b = false
+octree_advanced_settings {
+local_add_depth:i = 0
+local_depth_thr:r = 0
+split_thr:r = 0
+channel_split_thr:r = 0
+voxel_metric:e_VoxelMetric = MULTI
+local_depth_method:e_LocalDepthMethod = PRIMITIVES
+}
+octree_point_cloud_settings {
+point_cloud:b = false
+points_count:i = 100
+max_iters:i = 1000
+inlier_thr:r = 0.001
+enough_pts_perc:r = 0.85
+min_iters_perc:r = 0.1
+learning_rate:r = 0.01
+gradient_steps:i = 100
+momentum:r = 0.9
+decay_rate:r = 0.95
+}
+}
+scom2_settings {
+output_type:e_OutputType = DAG8
+brick_size:i = 1
+octree_levels_to_bricks:i = 0
+embedding_type:e_EmbeddingType = DIRECT
+clustering_algorithm:e_ClusteringAlgorithm = INVERSE_REPLACEMENT
+search_algorithm:e_SearchAlgorithm = BALL_TREE
+sim_metric:e_SimMetric = EUCLIDEAN
+bricks_use_similarity_compression:b = false
+bricks_similarity_threshold:r = 0
+bricks_target_count:i = -1
+bricks_transform_subgroup:e_TransformSubgroup = DEFAULT
+surface_sensitivity:r = 1
+channels_use_similarity_compression:b = false
+channels_similarity_threshold:r = 0
+channels_target_count:i = -1
+branches_use_similarity_compression:b = false
+branches_similarity_compression_levels:i = 1
+branches_similarity_threshold:r = 0
+branches_target_count:i = -1
+branches_merge_surface_threshold:r = 0.01
+branches_threshold_reduction_factor:r = 0.5
+branches_transform_subgroup:e_TransformSubgroup = DEFAULT
+bits_per_value:i = 8
+separate_unique_bricks:b = true
+support_channels:b = true
+support_surfaces:b = true
+support_multi_nodes:b = true
+custom_max_val:b = false
+use_close_match_heuristic:b = false
+bricks_use_average_val_transform:b = true
+clustering_dataset_size_limit_GB:i = 4
+packed_brick_type:e_PackedBrickType = FULL
+packed_surface_limit:e_PackedSurfaceLimit = RELAXED
+packed_reference_type:e_PackedReferenceType = SHORT_6_8_18
+internal_brick_use:e_InternalBrickUse = MERGE_ALL
+branch_descriptor:e_BranchDescriptor = DEFAULT
+}
+conversion_mode:e_ConversionType = MESH_TO_SDF
+sdf_type:e_SDFType = SCOM_TREE_2
+cmd_code:e_Cmd = CONVERT_SCENE
+}
+cmd_4 {
+cmd_code:e_Cmd = INIT_RAYTRACING
+}
+cmd_5 {
+uv:p2 = 0.54349, 0.274537
+cmd_code:e_Cmd = CAST_DEBUG_RAY
+}
+cmd_6 {
+uv:p2 = 0.482552, 0.281019
+cmd_code:e_Cmd = CAST_DEBUG_RAY
+}
+cmd_7 {
+input_file:s = "./scenes/01_simple_scenes/data/sphere.vsgf"
+load_reference_scene:b = true
+load_combined_scene:b = false
+save_sdf_debug_info:b = false
+sparse_octree_settings {
+brick_size:i = 1
+brick_pad:i = 0
+depth:i = 7
+min_depth:i = 1
+internal_depth:i = 0
+fill_all_nodes:b = false
+fill_internal_volume:b = false
+allow_multi_nodes:b = false
+allow_nodes_refill:b = false
+advanced_LOD_generation:b = false
+sign_analysis:b = false
+use_pruning:b = false
+calculate_tc:b = false
+calculate_mat_id:b = false
+allow_early_stop:b = false
+octree_advanced_settings {
+local_add_depth:i = 0
+local_depth_thr:r = 0
+split_thr:r = 0
+channel_split_thr:r = 0
+voxel_metric:e_VoxelMetric = MULTI
+local_depth_method:e_LocalDepthMethod = PRIMITIVES
+}
+octree_point_cloud_settings {
+point_cloud:b = false
+points_count:i = 100
+max_iters:i = 1000
+inlier_thr:r = 0.001
+enough_pts_perc:r = 0.85
+min_iters_perc:r = 0.1
+learning_rate:r = 0.01
+gradient_steps:i = 100
+momentum:r = 0.9
+decay_rate:r = 0.95
+}
+}
+scom2_settings {
+output_type:e_OutputType = DAG8
+brick_size:i = 1
+octree_levels_to_bricks:i = 0
+embedding_type:e_EmbeddingType = DIRECT
+clustering_algorithm:e_ClusteringAlgorithm = INVERSE_REPLACEMENT
+search_algorithm:e_SearchAlgorithm = BALL_TREE
+sim_metric:e_SimMetric = EUCLIDEAN
+bricks_use_similarity_compression:b = true
+bricks_similarity_threshold:r = 0.05
+bricks_target_count:i = -1
+bricks_transform_subgroup:e_TransformSubgroup = DEFAULT
+surface_sensitivity:r = 1
+channels_use_similarity_compression:b = false
+channels_similarity_threshold:r = 0
+channels_target_count:i = -1
+branches_use_similarity_compression:b = true
+branches_similarity_compression_levels:i = 2
+branches_similarity_threshold:r = 0.05
+branches_target_count:i = -1
+branches_merge_surface_threshold:r = 0.01
+branches_threshold_reduction_factor:r = 0.5
+branches_transform_subgroup:e_TransformSubgroup = DEFAULT
+bits_per_value:i = 8
+separate_unique_bricks:b = true
+support_channels:b = true
+support_surfaces:b = true
+support_multi_nodes:b = true
+custom_max_val:b = false
+use_close_match_heuristic:b = false
+bricks_use_average_val_transform:b = true
+clustering_dataset_size_limit_GB:i = 4
+packed_brick_type:e_PackedBrickType = FULL
+packed_surface_limit:e_PackedSurfaceLimit = RELAXED
+packed_reference_type:e_PackedReferenceType = SHORT_6_8_18
+internal_brick_use:e_InternalBrickUse = MERGE_ALL
+branch_descriptor:e_BranchDescriptor = DEFAULT
+}
+conversion_mode:e_ConversionType = MESH_TO_SDF
+sdf_type:e_SDFType = SCOM_TREE_2
+cmd_code:e_Cmd = CONVERT_SCENE
+}
+cmd_8 {
+cmd_code:e_Cmd = INIT_RAYTRACING
+}
+cmd_9 {
+render_mode:e_MultiRenderMode = MULTI_RENDER_MODE_LAMBERT_NO_TEX
+sdf_node_intersect:e_SDFNodeIntersect = SDF_OCTREE_NODE_INTERSECT_NEWTON
+normal_mode:e_NormalMode = NORMAL_MODE_GEOMETRY
+representation_mode:e_RepresentationMode = REPRESENTATION_MODE_VOLUME
+spp:i = 1
+fixed_lod:i = 1
+level_of_detail:r = 11
+compact_sdf_eps:r = 0.05
+LOD_distance:r = 10
+cmd_code:e_Cmd = SET_RENDER_SETTINGS
+}
+}

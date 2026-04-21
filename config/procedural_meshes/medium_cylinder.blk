@@ -1,0 +1,9 @@
+{
+  generator:s = "mesh"
+  model:s = "cylinder"
+  rotate_x:r = 0.3
+  rotate_y:r = 0.4
+  rotate_z:r = 0.5
+  c_segments:i = 16
+  h_segments:i = 16
+}

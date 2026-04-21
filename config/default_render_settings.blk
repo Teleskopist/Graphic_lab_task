@@ -1,0 +1,11 @@
+{
+render_mode:e_MultiRenderMode = MULTI_RENDER_MODE_LAMBERT_NO_TEX
+sdf_node_intersect:e_SDFNodeIntersect = SDF_OCTREE_NODE_INTERSECT_NEWTON
+normal_mode:e_NormalMode = NORMAL_MODE_GEOMETRY
+representation_mode:e_RepresentationMode = REPRESENTATION_MODE_VOLUME
+spp:i = 1
+fixed_lod:i = 1
+level_of_detail:r = 11.000000
+compact_sdf_eps:r = 0.05
+LOD_distance:r = 10.0
+}

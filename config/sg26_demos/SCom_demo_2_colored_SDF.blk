@@ -1,0 +1,87 @@
+{
+cmd_2 {
+input_file:s = "../models/CAD/meshes/ABC_88060/mesh.obj"
+load_reference_scene:b = true
+load_combined_scene:b = false
+settings {
+compound_levels:i = 1
+target_compound_size:i = 1000000000
+max_detail_increase:i = 1
+levels_size_ratio:r = 5
+is_vox_merge:b = true
+save_debug_info:b = false
+union_depth_parts:i = 0
+union_threshold:r = 0.02
+octree_settings {
+brick_size:i = 1
+brick_pad:i = 0
+depth:i = 9
+min_depth:i = 6
+fill_all_nodes:b = true
+fill_internal_volume:b = false
+allow_multi_nodes:b = true
+allow_nodes_refill:b = false
+advanced_LOD_generation:b = false
+sign_analysis:b = true
+use_pruning:b = true
+calculate_tc:b = false
+calculate_mat_id:b = true
+allow_early_stop:b = false
+octree_advanced_settings {
+local_add_depth:i = 0
+local_depth_thr:r = 0
+split_thr:r = 5e-06
+channel_split_thr:r = 0
+voxel_metric:e_VoxelMetric = MULTI
+local_depth_method:e_LocalDepthMethod = PRIMITIVES
+}
+octree_point_cloud_settings {
+point_cloud:b = false
+points_count:i = 100
+max_iters:i = 1000
+inlier_thr:r = 0.001
+enough_pts_perc:r = 0.85
+min_iters_perc:r = 0.1
+learning_rate:r = 0.01
+gradient_steps:i = 100
+momentum:r = 0.9
+decay_rate:r = 0.95
+}
+}
+CAD_to_SDF_type:e_CADSDFType = SCOM_TREE_2
+scom2_settings {
+output_type:e_OutputType = DAG8
+brick_size:i = 1
+octree_levels_to_bricks:i = 0
+embedding_type:e_EmbeddingType = DIRECT
+clustering_algorithm:e_ClusteringAlgorithm = INVERSE_REPLACEMENT
+search_algorithm:e_SearchAlgorithm = BALL_TREE
+bricks_use_similarity_compression:b = true
+bricks_similarity_threshold:r = 0.075
+bricks_target_count:i = -1
+surface_sensitivity:r = 1
+channels_use_similarity_compression:b = true
+channels_similarity_threshold:r = 0.01
+channels_target_count:i = -1
+branches_use_similarity_compression:b = true
+branches_similarity_compression_levels:i = 3
+branches_similarity_threshold:r = 0.1
+branches_target_count:i = -1
+bits_per_value:i = 8
+clustering_dataset_size_limit_GB:i = 8
+separate_unique_bricks:b = true
+packed_brick_type:e_PackedBrickType = FULL
+packed_surface_limit:e_PackedSurfaceLimit = RELAXED
+packed_reference_type:e_PackedReferenceType = SHORT_6_8_18
+}
+}
+conversion_mode:e_ConversionType = CAD_PARTS_TO_MULTI_OCTREE
+cmd_code:e_Cmd = CONVERT_SCENE
+}
+cmd_1 {
+scene_id:i = 0
+xml_filename:s = "saves/demos/SCom_demo_2_colored_SDF/scene.xml"
+folder:s = "saves/demos/SCom_demo_2_colored_SDF"
+cmd_code:e_Cmd = SAVE_SCENE
+}
+}

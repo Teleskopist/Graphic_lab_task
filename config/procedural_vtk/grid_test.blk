@@ -1,0 +1,10 @@
+{
+  generator:s = "vtk"
+  unstructured_grid
+  {
+    model:s = "dense_grid"
+    grid_size:i3 = 15,15,15
+    fill_point_channel:b = true
+    fill_cell_channel:b = true
+  }
+}

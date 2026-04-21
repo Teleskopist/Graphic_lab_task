@@ -1,0 +1,150 @@
+#version 460
+#extension GL_GOOGLE_include_directive : require
+
+#include "common_slang.h"
+layout(binding = 0, set = 0) buffer data0 { vec4 in_data[]; }; // 
+layout(binding = 1, set = 0) buffer data1 { uint out_data[]; }; // 
+layout(binding = 2, set = 0) buffer data2 { vec4 m_AABuffer[]; }; // 
+layout(binding = 3, set = 0) buffer data3 { vec4 m_AABuffer1[]; }; // 
+layout(binding = 4, set = 0) buffer dataUBO { Antialiaser_slang_UBO_Data ubo; };
+
+void initEyeRay(uint x, uint y, int img_width, int img_height, inout vec4 rayPos, inout vec4 rayDir) ;
+
+
+void initEyeRay(uint x, uint y, int img_width, int img_height, inout vec4 rayPos, inout vec4 rayDir) {
+  float x_new = float(x) + 0.5f;
+  x_new = x_new / float(img_width);
+  float y_new = float(y) + 0.5f;
+  y_new = y_new / float(img_height);
+
+  vec2 d = vec2(x_new,y_new);
+
+  vec4 pos = vec4(2.0f*d.x - 1.0f,-2.0f*d.y + 1.0f,1.0f,1.0f);
+  pos = ubo.m_invProj * pos;
+  pos /= pos.w;
+  vec3 dir = normalize(pos.xyz);
+  vec3 rpos = vec3(0,0,0);
+
+  transform_ray3f(ubo.m_invWorldView, rpos, dir);
+  
+  rayPos = vec4(rpos, 1.0f);
+  rayDir  = vec4(dir, 0.0f);
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+layout(local_size_x = 32, local_size_y = 8, local_size_z = 1) in;
+
+layout( push_constant ) uniform kernelArgs
+{
+  int height; 
+  int width; 
+  uint iNumElementsZ; 
+  uint tFlagsMask;    
+} kgenArgs;
+
+
+
+void main()
+{
+  bool runThisThread = true;
+  const int y = int(gl_GlobalInvocationID[0]); 
+  const int x = int(gl_GlobalInvocationID[1]); 
+  if(y >= kgenArgs.height + 0 || x >= kgenArgs.width + 0)
+    runThisThread = false;
+    if(runThisThread)
+  {
+  
+            vec4 color = in_data[y * kgenArgs.width + x];
+
+            if (color.w < 0.0f) {
+                color.w = 10000.0f;
+            }
+
+            vec4 rayPos;
+            vec4 rayDir;
+
+            initEyeRay(uint(x), uint(y), kgenArgs.width, kgenArgs.height, rayPos, rayDir);
+
+            vec4 pos = rayPos + rayDir * color.w;
+
+            vec4 previous = ubo.m_previousMatrix * pos;
+            previous /= previous.w;
+
+            vec2 uv = vec2(previous.x,previous.y);
+
+            float screen_x = (uv.x + 1.0f) / 2.0f * float(kgenArgs.width) - 0.5f;
+            float screen_y = (1.0f - uv.y) / 2.0f * float(kgenArgs.height) - 0.5f;
+
+            int min_x = int(screen_x);
+            int min_y = int(screen_y);
+
+            float dx = screen_x - float(min_x);
+            float dy = screen_y - float(min_y);
+
+            vec4 boxMin = in_data[y * kgenArgs.width + x];
+            vec4 boxMax = in_data[y * kgenArgs.width + x];
+
+            if (x > 0) {
+                boxMin = min(boxMin, in_data[y * kgenArgs.width + x - 1]);
+                boxMax = max(boxMax, in_data[y * kgenArgs.width + x - 1]);
+            }
+            if (x < kgenArgs.width - 1) {
+                boxMin = min(boxMin, in_data[y * kgenArgs.width + x + 1]);
+                boxMax = max(boxMax, in_data[y * kgenArgs.width + x + 1]);
+            }
+            if (y > 0) {
+                boxMin = min(boxMin, in_data[y * kgenArgs.width + x - kgenArgs.width]);
+                boxMax = max(boxMax, in_data[y * kgenArgs.width + x - kgenArgs.width]);
+            }
+            if (y < kgenArgs.height - 1) {
+                boxMin = min(boxMin, in_data[y * kgenArgs.width + x + kgenArgs.width]);
+                boxMax = max(boxMax, in_data[y * kgenArgs.width + x + kgenArgs.width]);
+            }
+
+            // == Moore neighborhood ==
+            
+            // if (x > 0 && y > 0) {
+            //     boxMin = min(boxMin, in_data[y * width + x - 1 - width]);
+            //     boxMax = max(boxMax, in_data[y * width + x - 1 - width]);
+            // }
+            // if (x < width - 1 && y > 0) {
+            //     boxMin = min(boxMin, in_data[y * width + x + 1 - width]);
+            //     boxMax = max(boxMax, in_data[y * width + x + 1 - width]);
+            // }
+            // if (x > 0 && y < height - 1) {
+            //     boxMin = min(boxMin, in_data[y * width + x - 1 + width]);
+            //     boxMax = max(boxMax, in_data[y * width + x - 1 + width]);
+            // }
+            // if (x < width - 1 && y < height - 1) {
+            //     boxMin = min(boxMin, in_data[y * width + x + 1 + width]);
+            //     boxMax = max(boxMax, in_data[y * width + x + 1 + width]);
+            // }
+
+            if (min_x >= 0 && min_y >= 0 && min_x < kgenArgs.width - 1 && min_y < kgenArgs.height - 1) {
+                if (ubo.m_AAFrameNum % 2 == 0) {
+                    color = ubo.m_AAFactor * in_data[y * kgenArgs.width + x] + (1.0f - ubo.m_AAFactor) * (m_AABuffer[min_y * kgenArgs.width + min_x] * (1.0f - dx) * (1.0f - dy) + m_AABuffer[min_y * kgenArgs.width + min_x + 1] * (1.0f - dy) * dx + m_AABuffer[(min_y + 1) * kgenArgs.width + min_x] * (1.0f - dx) * dy + m_AABuffer[(min_y + 1) * kgenArgs.width + min_x + 1] * dx * dy);
+                } else {
+                    color = ubo.m_AAFactor * in_data[y * kgenArgs.width + x] + (1.0f - ubo.m_AAFactor) * (m_AABuffer1[min_y * kgenArgs.width + min_x] * (1.0f - dx) * (1.0f - dy) + m_AABuffer1[min_y * kgenArgs.width + min_x + 1] * (1.0f - dy) * dx + m_AABuffer1[(min_y + 1) * kgenArgs.width + min_x] * (1.0f - dx) * dy + m_AABuffer1[(min_y + 1) * kgenArgs.width + min_x + 1] * dx * dy);
+                }
+            } else {
+                color = in_data[y * kgenArgs.width + x];
+            }
+
+            color = clamp(color, boxMin, boxMax);
+        
+            color.w = in_data[y * kgenArgs.width + x].w;
+
+            if (ubo.m_AAFrameNum % 2 == 0) {
+                m_AABuffer1[y * kgenArgs.width + x] = color;
+            } else {
+                m_AABuffer[y * kgenArgs.width + x] = color;
+            }
+
+            color.w = 1.0f;
+
+            uvec4 col = uvec4(255 * clamp(color, vec4(0,0,0,0), vec4(1,1,1,1)));
+            out_data[y * kgenArgs.width + x] = (col.w << 24) | (col.z << 16) | (col.y << 8) | col.x;
+        
+  }
+}
+

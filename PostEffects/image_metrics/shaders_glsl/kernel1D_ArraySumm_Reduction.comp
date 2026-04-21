@@ -1,0 +1,85 @@
+#version 460
+#extension GL_GOOGLE_include_directive : require
+
+#include "common_glsl.h"
+
+layout(binding = 0, set = 0) buffer data0 { uint rt_data[]; }; //
+layout(binding = 1, set = 0) buffer data1 { uint ref_data[]; }; //
+layout(binding = 2, set = 0) buffer data2 { float tmpred04[]; }; //
+layout(binding = 3, set = 0) buffer dataUBO { ImgMetricsKernel_glsl_UBO_Data ubo; };
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+layout(local_size_x = 256, local_size_y = 1, local_size_z = 1) in;
+
+layout( push_constant ) uniform kernelArgs
+{
+  int dataSize; 
+  uint iNumElementsY; 
+  uint iNumElementsZ; 
+  uint tFlagsMask;    
+} kgenArgs;
+
+shared float m_summShared[256*1*1];
+
+void main()
+{
+  const uint globalId = gl_GlobalInvocationID[0];
+  const uint localId  = gl_LocalInvocationID[0];
+  m_summShared[localId] = (globalId < kgenArgs.dataSize) ?  tmpred04[kgenArgs.iNumElementsY + globalId]  :  0; // use kgenArgs.iNumElementsY for 'InputOffset'
+  barrier();
+  if (localId < 128) 
+  {
+    m_summShared[localId] += m_summShared[localId + 128];
+  }
+  barrier();
+  if (localId < 64) 
+  {
+    m_summShared[localId] += m_summShared[localId + 64];
+  }
+  barrier();
+  if (localId < 32) 
+  {
+    m_summShared[localId] += m_summShared[localId + 32];
+  }
+  barrier();
+  if (localId < 16) 
+  {
+    m_summShared[localId] += m_summShared[localId + 16];
+  }
+  barrier();
+  if (localId < 8) 
+  {
+    m_summShared[localId] += m_summShared[localId + 8];
+  }
+  barrier();
+  if (localId < 4) 
+  {
+    m_summShared[localId] += m_summShared[localId + 4];
+  }
+  barrier();
+  if (localId < 2) 
+  {
+    m_summShared[localId] += m_summShared[localId + 2];
+  }
+  barrier();
+  if (localId < 1) 
+  {
+    m_summShared[localId] += m_summShared[localId + 1];
+  }
+  barrier();
+ 
+  if(localId == 0)
+  {
+    if((kgenArgs.tFlagsMask & KGEN_REDUCTION_LAST_STEP) != 0)
+    {
+      ubo.m_summ += m_summShared[0];
+    }
+    else
+    {
+      tmpred04[kgenArgs.iNumElementsZ + gl_WorkGroupID[0]] = m_summShared[0];     // use kgenArgs.iNumElementsZ for 'OutputOffset'
+    }
+  }
+}
+
