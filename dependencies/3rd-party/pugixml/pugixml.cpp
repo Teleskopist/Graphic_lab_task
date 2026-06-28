@@ -447,7 +447,15 @@ PUGI__NS_BEGIN
 #else
 	#define PUGI__GETHEADER_IMPL(object, page, flags) (((reinterpret_cast<char*>(object) - reinterpret_cast<char*>(page)) << 8) | (flags))
 	// this macro casts pointers through void* to avoid 'cast increases required alignment of target type' warnings
+#if defined(__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wuninitialized"
+#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+#endif
 	#define PUGI__GETPAGE_IMPL(header) static_cast<impl::xml_memory_page*>(const_cast<void*>(static_cast<const void*>(reinterpret_cast<const char*>(&header) - (header >> 8))))
+#if defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
 #endif
 
 	#define PUGI__GETPAGE(n) PUGI__GETPAGE_IMPL((n)->header)
@@ -7159,7 +7167,15 @@ namespace pugi
 		}
 
 		// reset other document
+	#if defined(__GNUC__)
+	#pragma GCC diagnostic push
+	#pragma GCC diagnostic ignored "-Wuninitialized"
+	#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
+	#endif
 		new (other) impl::xml_document_struct(PUGI__GETPAGE(other));
+	#if defined(__GNUC__)
+	#pragma GCC diagnostic pop
+	#endif
 		rhs._buffer = 0;
 	}
 #endif

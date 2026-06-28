@@ -4,6 +4,7 @@ target_sources(VoxelRenderer PRIVATE
     voxel_dag.cpp
     procedural_voxel_grid.cpp
     cave_generator.cpp
+    mesh_voxelizer_svo.cpp
     VoxelRenderer.cpp
     VoxelRenderer_host.cpp
 )
